@@ -23,20 +23,3 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('loginToMagento',(email,password)=>{
-    cy.visit("/customer/account/login/");
-    cy.get("#email").type(email)
-    cy.get("#pass").type(password)
-    cy.get("#send2").click();
-})
-
-Cypress.Commands.add('loginTOnopcommerce',(email ,password)=>{
-    cy.visit("https://admin-demo.nopcommerce.com/Admin/login");
-    cy.get("#Email").clear().type(email)
-    cy.get("#Password").clear().type(password)
-    cy.get(".button-1").click();
-})
-Cypress.on('uncaught:exception', (err, runnable) => {
-    // returning false here prevents Cypress from failing the test
-    return false
-  })
